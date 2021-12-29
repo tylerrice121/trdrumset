@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledKit1 = styled.div `
-    min-height: 98.5vh;
-
+    min-height: 100vh;
+    max-width: 100%;
+    background-color: transparent;
+    background: rgb(172,42,42);
+    background: linear-gradient(270deg, rgba(172,42,42,1) 0%, rgba(143,25,29,1) 100%);
     padding: 2px;
     display: flex;
     flex-wrap: wrap;
@@ -11,8 +14,10 @@ export const StyledKit1 = styled.div `
         flex-wrap: wrap;
         width: 100%;
         justify-content: space-evenly;
-        border: 1px solid black;
-
+        /* border: 1px solid black; */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: transparent;
         div{
 
           width: 32%;
@@ -22,10 +27,13 @@ export const StyledKit1 = styled.div `
 
           position: relative;
           .innerpad{
-            border-left: 1px solid black;
-            border-top: 1px solid black;
-            border-right: 1px solid black;
-            border-bottom: 1px solid black;
+            box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.85);
+            -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.85);
+            -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.85);
+            background: rgb(52,50,51);
+            background: radial-gradient(circle, rgba(52,50,51,1) 0%, rgba(57,56,57,1) 100%);
+            border-radius: 10px;
+            /* border: 2px solid black; */
             width: 100%;
             height: 100%;
             margin: 0;
@@ -33,16 +41,33 @@ export const StyledKit1 = styled.div `
             padding: 0;
           } 
           .light{
+            box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.28) inset;
+            -webkit-box-shadow: 10px 10px 10px -10px rgba(0,0,0,0.28) inset;
+            -moz-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.28) inset;
+            background: rgb(52,50,51) !important;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 5px;
             width: 100px;
-            border-left: 1px solid black;
-            border-top: 1px solid black;
             height: 50px;
             margin: 0;
             position: absolute;
             right: 0;
             bottom: 0;
             background-color: white;
-            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .lightbulb{
+              box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.85) inset;
+              -webkit-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.85) inset;
+              -moz-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.85) inset;
+              background: #8a8688 !important;
+              /* border: 1px solid black; */
+              border-radius: 3px;
+              height: 15px;
+              width: 50px;
+            }
+            /* z-index: 1; */
           }
         }
 

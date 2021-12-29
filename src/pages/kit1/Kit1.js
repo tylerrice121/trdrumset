@@ -5,26 +5,51 @@ const Kit1 = () => {
             <div className="allpads">
                 <div className="pad1">
                     <div className="innerpad">
-                        inner
+                        
                     </div>
                     <div className='light'>
-                        light
+                        <div className="lightbulb"></div>
                     </div>
                 </div>
                 <div className="pad2">
-                    2
+                    <div className="innerpad">
+                        
+                    </div>
+                    <div className='light'>
+                        <div className="lightbulb"></div>
+                    </div>
                 </div>
                 <div className="pad3">
-                    3
+                    <div className="innerpad">
+                        
+                    </div>
+                    <div className='light'>
+                        <div className="lightbulb"></div>
+                    </div>
                 </div>
                 <div className="pad4">
-                    4
+                    <div className="innerpad">
+                        
+                    </div>
+                    <div className='light'>
+                        <div className="lightbulb"></div>
+                    </div>
                 </div>
                 <div className="pad5">
-                    5
+                    <div className="innerpad">
+                        
+                    </div>
+                    <div className='light'>
+                        <div className="lightbulb"></div>
+                    </div>
                 </div>
                 <div className="pad6">
-                    6
+                    <div className="innerpad">
+                        
+                    </div>
+                    <div className='light'>
+                        <div className="lightbulb"></div>
+                    </div>
                 </div>
             </div>
         </StyledKit1>
