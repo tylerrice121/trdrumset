@@ -33,13 +33,18 @@ export const StyledKit1 = styled.div `
             background: rgb(52,50,51);
             background: radial-gradient(circle, rgba(52,50,51,1) 0%, rgba(57,56,57,1) 100%);
             border-radius: 10px;
-            /* border: 2px solid black; */
             width: 100%;
             height: 100%;
             margin: 0;
             position: relative;
             padding: 0;
+            transition: all 0.07s;
           } 
+          .play{
+            transform: scale(1.01);
+            background: rgb(52,50,51);
+            background: radial-gradient(circle, #242224 0%, rgba(57,56,57,1) 100%);
+          }
           .light{
             box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.28) inset;
             -webkit-box-shadow: 10px 10px 10px -10px rgba(0,0,0,0.28) inset;
@@ -62,10 +67,14 @@ export const StyledKit1 = styled.div `
               -webkit-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.85) inset;
               -moz-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.85) inset;
               background: #8a8688 !important;
-              /* border: 1px solid black; */
               border-radius: 3px;
               height: 15px;
               width: 50px;
+              transition: all 0.07s;
+            }
+            .playing{
+              transform: scale(1.2);
+              background-color: #c0484a !important;
             }
             /* z-index: 1; */
           }
