@@ -9,53 +9,94 @@ import HHOpen from '../../drums/kit1/HHOpen.mp3';
 
 const Kit1 = () => {
 
-    const handleClick = useCallback((e) => {
-        e.preventDefault()
-        console.log(e.target.attributes['data-pad'].value)
-        const audio = document.querySelector(`audio[data-pad="${e.target.attributes['data-pad'].value}"]`)
-        const pad = document.querySelector(`.innerpad[data-pad="${e.target.attributes['data-pad'].value}"]`)
-        const light = document.querySelector(`.lightbulb[data-pad="${e.target.attributes['data-pad'].value}"]`)
-        if(!audio) return;
-        audio.play();
-        audio.currentTime = 0;
-        pad.classList.add('play');
-        light.classList.add('playing')
-    }, []);
+    let context;
+    let keyToSoundMap = {
+        w: `${Snare}`,
+        e: `${HHOpen}`,
+        r: `${HHClosed}`,
+        a: `${Kick}`,
+        s: `${Sn}`,
+        d: `${Clap}`,
+    }
 
-    const handleTouch = useCallback((e) => {
-        e.preventDefault()
-        console.log(e.target.attributes['data-pad'].value)
-        const audio = document.querySelector(`audio[data-pad="${e.target.attributes['data-pad'].value}"]`)
-        const pad = document.querySelector(`.innerpad[data-pad="${e.target.attributes['data-pad'].value}"]`)
-        const light = document.querySelector(`.lightbulb[data-pad="${e.target.attributes['data-pad'].value}"]`)
-        if(!audio) return;
-        audio.play();
-        audio.currentTime = 0;
-        pad.classList.add('play');
-        light.classList.add('playing')
-    }, []);
+    function loadSound(url) {
+        return window.fetch(url)
+        .then(response => response.arrayBuffer())
+        .then(arrayBuffer => {
+            return new Promise((resolve, reject) => {
+                context.decodeAudioData(arrayBuffer, (buffer) => {
+                    resolve(buffer);
+                }, (e) => { reject(e); })
+            })
+        })
+    }
 
-    const keyPress = useCallback((e) =>{
-        e.preventDefault();
-        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-        const innerpad = document.querySelector(`.innerpad[data-key="${e.keyCode}"]`)
-        const pad = document.querySelector(`.lightbulb[data-key="${e.keyCode}"]`)
-        if(!audio) return;
+    async function initSoundMap() {
+        Object.entries(keyToSoundMap).forEach(async entry => {
+            await loadSound(entry[1]).then(audioBuffer => keyToSoundMap[entry[0]] = audioBuffer)
+        })
+    }
+
+    async function init() {
+        if (context) return;
+
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        context = new AudioContext();
+
+        await initSoundMap();
+    }
+
+    const playSound = (buffer, time) => {
+        if (typeof buffer !== 'object') return;
+
+        const source = context.createBufferSource();
+        source.buffer = buffer;
+        source.connect(context.destination);
+        source.start(time);
+    };
+
+    const processInteraction = (ev, letter) => {
+
+        ev.preventDefault()
+        const sound = document.querySelector(`audio[data-key=${letter}]`);
+        if (!sound) return;
+
+        context
+            ? playSound(keyToSoundMap[letter])
+            : sound.cloneNode().play();
+
+        // trigger css
         
-        audio.play();
-        audio.currentTime = 0;
-        pad.classList.add('playing');
-        innerpad.classList.add('play');
-    }, []);
+        const pad = document.getElementById(letter);
+        pad.classList.add('play');
 
-    
-    useEffect(() => {
-        document.addEventListener('keydown', keyPress);
-        
-        return () => {
-            document.removeEventListener('keydown', keyPress)
-        };
-    }, [keyPress])
+        const light = document.querySelector(`div[data-key=${letter}]`)
+        light.classList.add('playing');
+    }
+
+    document.addEventListener('keydown', async key => {
+        await init();
+        const letter = key.key.toLocaleLowerCase();
+        processInteraction(letter)
+
+    })
+
+    document.addEventListener('click', async ev => {
+        ev.preventDefault();
+        await init();
+        const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
+        processInteraction(letter)
+
+    })
+
+    document.addEventListener('touchstart', async ev => {
+        ev.preventDefault()
+        await init();
+        const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
+        processInteraction(ev, letter)
+
+    })
+
     
     const removeTransition = useCallback((e) => {
         if(e.propertyName !== 'transform') return;
@@ -74,66 +115,66 @@ const Kit1 = () => {
     useEffect(()=> {
         const pads = document.querySelectorAll('.innerpad');
         pads.forEach(pad => pad.addEventListener('transitionend', removePadTransition));
-        console.log(pads)
     }, [removePadTransition])
 
     return (
         <StyledKit1>
             <div className="allpads">
                 <div className="pad1" >
-                    <div className="innerpad" data-key='87' data-pad='1' onClick={handleClick} onTouchStart={handleTouch}>
+                    <div id='w' className="innerpad" data-pad='1'>
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='87' data-pad='1'></div>
+                        <div className="lightbulb" data-key='w' data-pad='1'></div>
                     </div>
                 </div>
                 <div className="pad2">
-                    <div data-key='69' data-pad='2' className="innerpad" onClick={handleClick}>
+                    <div id='e' data-pad='2' className="innerpad">
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='69' data-pad='2' ></div>
+                        <div className="lightbulb" data-key='e' data-pad='2' ></div>
                     </div>
                 </div>
                 <div className="pad3">
-                    <div className="innerpad" data-key='82' data-pad='3' onClick={handleClick}>
+                    <div id='r' className="innerpad" data-pad='3'>
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='82' data-pad='3'></div>
+                        <div className="lightbulb" data-key='r' data-pad='3'></div>
                     </div>
                 </div>
                 <div className="pad4">
-                    <div className="innerpad" data-pad='4' data-key='65' onClick={handleClick}>
+                    <div id='a' className="innerpad" data-pad='4' >
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='65' data-pad='4' ></div>
+                        <div className="lightbulb" data-key='a' data-pad='4' ></div>
                     </div>
                 </div>
                 <div className="pad5">
-                    <div className="innerpad" data-key='83' data-pad='5' onClick={handleClick}>
+                    <div id='s' className="innerpad" data-pad='5'>
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='83' data-pad='5' ></div>
+                        <div className="lightbulb" data-key='s' data-pad='5' ></div>
                     </div>
                 </div>
                 <div className="pad6">
-                    <div className="innerpad" data-key='68' data-pad='6' onClick={handleClick}>
+                    <div id='d' className="innerpad" data-pad='6'>
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='68' data-pad='6'></div>
+                        <div className="lightbulb" data-key='d' data-pad='6'></div>
                     </div>
                 </div>
             </div>
-            <audio  preload data-key='87' data-pad='1' src={Snare}></audio>
-            <audio  preload data-key='69' data-pad='2' src={HHOpen}></audio>
-            <audio  preload data-key='82' data-pad='3' src={HHClosed}></audio>
-            <audio  preload data-key='65' data-pad='4' src={Kick}></audio>
-            <audio  preload data-key='83' data-pad='5' src={Sn}></audio>
-            <audio  preload data-key='68' data-pad='6' src={Clap}></audio>
+            <audio  preload="true" data-key='w' data-pad='1' src={Snare}></audio>
+            <audio  preload="true" data-key='e' data-pad='2' src={HHOpen}></audio>
+            <audio  preload="true" data-key='r' data-pad='3' src={HHClosed}></audio>
+            <audio  preload="true" data-key='a' data-pad='4' src={Kick}></audio>
+            <audio  preload="true" data-key='s' data-pad='5' src={Sn}></audio>
+            <audio  preload="true" data-key='d' data-pad='6' src={Clap}></audio>
+
         </StyledKit1>
     );
 };
