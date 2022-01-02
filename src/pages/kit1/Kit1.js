@@ -39,9 +39,12 @@ const Kit1 = () => {
 
     async function init() {
         if (context) return;
-
+        
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         context = new AudioContext();
+        if (context.state !== 'running'){
+            context.resume();
+        }
 
         await initSoundMap();
     }
@@ -55,9 +58,9 @@ const Kit1 = () => {
         source.start(time);
     };
 
-    const processInteraction = (ev, letter) => {
+    const processInteraction = (letter) => {
 
-        ev.preventDefault()
+        // ev.preventDefault()
         const sound = document.querySelector(`audio[data-key=${letter}]`);
         if (!sound) return;
 
@@ -81,20 +84,35 @@ const Kit1 = () => {
 
     })
 
-    document.addEventListener('click', async ev => {
-        ev.preventDefault();
-        await init();
-        const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
-        processInteraction(letter)
+    // document.addEventListener('click', async ev => {
+    //     // ev.preventDefault();
+    //     await init();
+    //     const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
+    //     processInteraction(letter)
 
-    })
+    // })
+
+    let handled = false;
 
     document.addEventListener('touchstart', async ev => {
-        ev.preventDefault()
         await init();
         const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
-        processInteraction(ev, letter)
+        if(ev.type === "touchstart") {
+            handled = true;
+            processInteraction(letter);
+        } else {
+            handled = false;
+        }
+    })
 
+    document.addEventListener('click', async ev => {
+        await init();
+        const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
+        if (ev.type === "click" && !handled) {
+            processInteraction(letter);
+        } else {
+            handled = false;
+        }
     })
 
     
