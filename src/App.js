@@ -10,9 +10,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path='/' element={<Kit1/>}/>
-        <Route exact path='/kit2' element={<Kit2/>}/>
-        <Route exact path='/kit3' element={<Kit3/>}/>
-        <Route exact path='/kit4' element={<Kit4/>}/>
       </Routes>
       
     </div>
