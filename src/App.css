@@ -2,6 +2,8 @@
     text-align: center;
     min-height: 100vh;
     min-width: 100%;
+    background: rgb(172, 42, 42);
+    background: linear-gradient(270deg, rgba(172, 42, 42, 1) 0%, rgba(143, 25, 29, 1) 100%);
 }
 
 @media only screen and (max-device-width: 768px) and (orientation: portrait) {
@@ -21,6 +23,28 @@
         height: 100vh;
         min-width: 100vw;
         /* transform: rotate(90deg); */
+    }
+}
+
+@media only screen and (max-device-width: 768px) and (orientation: landscape) {
+    .App {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        min-width: 100vw;
+        /* transform: rotate(90deg); */
+    }
+    #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        min-width: 100vw;
+        /* transform: rotate(90deg); */
+        background: rgb(172, 42, 42);
+        background: linear-gradient(270deg, rgba(172, 42, 42, 1) 0%, rgba(143, 25, 29, 1) 100%);
     }
 }
 

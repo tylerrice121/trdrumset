@@ -252,22 +252,25 @@ export const StyledKit1 = styled.div `
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      min-width: 100vh;
-      height: 100vw;
+      min-width: 110vh;
+      height: 102vw;
       .allpads{
           display: flex;
+          align-self: center;
           flex-wrap: wrap;
-          min-width: 100vh;
-          height: 100vw;
+          min-width: 90vh;
+          height: 90vw;
           justify-content: space-evenly;
           align-items: center;
           padding-top: 0px;
           padding-bottom: 10px;
+          padding-right: 40px;
+          padding-left: 50px;
           background-color: transparent;
           div{
-            width: 30%;
-            height: 40%;
-            margin: 5px;
+            width: 32%;
+            height: 47%;
+            margin: 0;
             padding: 0;
             position: relative;
             .innerpad{
@@ -280,6 +283,7 @@ export const StyledKit1 = styled.div `
               width: 100%;
               height: 100%;
               margin: 0;
+              margin-bottom: -50px;
               position: relative;
               padding: 0;
               transition: all 0.07s;
@@ -334,22 +338,25 @@ export const StyledKit1 = styled.div `
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      min-width: 100vw;
-      height: 100vh;
+      min-width: 110vw;
+      height: 120vh;
       .allpads{
           display: flex;
+          align-self: center;
           flex-wrap: wrap;
-          min-width: 100vw;
-          height: 100vh;
+          min-width: 90vw;
+          height: 90vh;
           justify-content: space-evenly;
           align-items: center;
           padding-top: 0px;
           padding-bottom: 10px;
+          padding-right: 40px;
+          padding-left: 50px;
           background-color: transparent;
           div{
-            width: 30%;
-            height: 40%;
-            margin: 5px;
+            width: 32%;
+            height: 47%;
+            margin: 0;
             padding: 0;
             position: relative;
             .innerpad{
@@ -362,6 +369,7 @@ export const StyledKit1 = styled.div `
               width: 100%;
               height: 100%;
               margin: 0;
+              margin-bottom: -50px;
               position: relative;
               padding: 0;
               transition: all 0.07s;
