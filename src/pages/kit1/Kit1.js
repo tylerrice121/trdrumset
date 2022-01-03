@@ -84,14 +84,6 @@ const Kit1 = () => {
 
     })
 
-    // document.addEventListener('click', async ev => {
-    //     // ev.preventDefault();
-    //     await init();
-    //     const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
-    //     processInteraction(letter)
-
-    // })
-
     let handled = false;
 
     document.addEventListener('touchstart', async ev => {
@@ -137,6 +129,10 @@ const Kit1 = () => {
 
     return (
         <StyledKit1>
+            <div className="flip">
+                <h2>Welcome!</h2>
+                <h3>Please turn your screen</h3>
+            </div>
             <div className="allpads">
                 <div className="pad1" >
                     <div id='w' className="innerpad" data-pad='1'>

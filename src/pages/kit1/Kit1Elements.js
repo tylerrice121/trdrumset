@@ -9,6 +9,9 @@ export const StyledKit1 = styled.div `
     padding: 2px;
     display: flex;
     flex-wrap: wrap;
+    .flip{
+      display: none;
+    }
     .allpads{
         display: flex;
         flex-wrap: wrap;
@@ -90,6 +93,23 @@ export const StyledKit1 = styled.div `
       justify-content: center;
       min-width: 100vh;
       height: 100vw;
+      .flip{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        align-self: center;
+        transform: rotate(270deg);
+        z-index: 2;
+        background-color:rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 120vh;
+        text-align: center;
+        color: white;
+        h2{
+          opacity: 1.0;
+        }
+      }
       .allpads{
           display: flex;
           flex-wrap: wrap;
