@@ -6,8 +6,8 @@ export const StyledNav = styled.div`
     font-family: 'Orbitron', sans-serif;
     position: fixed;
     z-index: 999;
-    width: 50%;
-    height: 30%;
+    width: 800px;
+    height: 300px;
     background: rgb(33,33,33);
     background: radial-gradient(circle, rgba(33,33,33,1) 0%, rgba(42,42,42,1) 100%);
     display: flex;
