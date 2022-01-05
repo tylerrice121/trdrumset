@@ -13,6 +13,7 @@ export const StyledKit1 = styled.div `
       display: none;
     }
     .allpads{
+      margin-top: 40px;
         display: flex;
         flex-wrap: wrap;
         width: 100%;

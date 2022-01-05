@@ -61,7 +61,7 @@ const Kit1 = () => {
     const processInteraction = (letter) => {
 
         // ev.preventDefault()
-        const sound = document.querySelector(`audio[data-key=${letter}]`);
+        const sound = document.querySelector(`audio[data-key="${letter}"]`);
         if (!sound) return;
 
         context
@@ -73,7 +73,7 @@ const Kit1 = () => {
         const pad = document.getElementById(letter);
         pad.classList.add('play');
 
-        const light = document.querySelector(`div[data-key=${letter}]`)
+        const light = document.querySelector(`div[data-key="${letter}"]`)
         light.classList.add('playing');
     }
 
