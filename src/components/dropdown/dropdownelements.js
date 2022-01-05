@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledDropdown = styled.div `
     height: 40px;
-    width: 70%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;

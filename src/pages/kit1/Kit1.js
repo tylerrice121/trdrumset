@@ -106,7 +106,6 @@ const Kit1 = () => {
             handled = false;
         }
     })
-
     
     const removeTransition = useCallback((e) => {
         if(e.propertyName !== 'transform') return;
