@@ -1,5 +1,4 @@
 import { StyledKit1 } from "./Kit1Elements";
-import { useCallback, useEffect } from "react";
 import Snare from '../../drums/kit1/Snare.wav';
 import Kick from '../../drums/kit1/Kick.mp3';
 import Sn from '../../drums/kit1/808SN.mp3';
