@@ -18,7 +18,6 @@ export const StyledKit1 = styled.div `
         flex-wrap: wrap;
         width: 100%;
         justify-content: space-evenly;
-        /* border: 1px solid black; */
         padding-top: 10px;
         padding-bottom: 10px;
         background-color: transparent;
@@ -45,7 +44,6 @@ export const StyledKit1 = styled.div `
             transition: all 0.07s;
           } 
           .play{
-            transform: scale(1.01);
             background: rgb(52,50,51);
             background: radial-gradient(circle, #242224 0%, rgba(57,56,57,1) 100%);
           }

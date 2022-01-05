@@ -75,6 +75,9 @@ const Kit1 = () => {
 
         const light = document.querySelector(`div[data-key="${letter}"]`)
         light.classList.add('playing');
+
+        setTimeout(() => pad.classList.remove('play'), 100)
+        setTimeout(() => light.classList.remove('playing'), 100)
     }
 
     document.addEventListener('keydown', async key => {
@@ -106,25 +109,6 @@ const Kit1 = () => {
             handled = false;
         }
     })
-    
-    const removeTransition = useCallback((e) => {
-        if(e.propertyName !== 'transform') return;
-        e.target.classList.remove('playing')
-    }, []);
-
-    const removePadTransition = useCallback((e) => {
-        e.target.classList.remove('play')
-    }, []);
-
-    useEffect(()=> {
-        const keys = document.querySelectorAll('.lightbulb');
-        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-    }, [removeTransition])
-
-    useEffect(()=> {
-        const pads = document.querySelectorAll('.innerpad');
-        pads.forEach(pad => pad.addEventListener('transitionend', removePadTransition));
-    }, [removePadTransition])
 
     return (
         <StyledKit1>
