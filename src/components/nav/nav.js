@@ -12,25 +12,22 @@ const Navigation = ({toggle, isOpen}) => {
     const location = useLocation();
 
     return (
-        <StyledNav isOpen={isOpen} onClick={toggle}>
+        <StyledNav isOpen={isOpen}>
             {NavbarData.map((item, index) => {
                 if(location.pathname === item.path){
                     let prev;
                     let next;
-                    if(location.pathname !== '/'){
+                    if(item.path !== '/' && item.path !== '/kit4'){
                         prev = NavbarData[index - 1];
                         next = NavbarData[index + 1];
-                    } else {
+                    } else if (item.path === '/'){
                         prev = NavbarData[index];
                         next = NavbarData[index + 1];
-                    }
-                    if(location.pathname !== '/kit4'){
-                        prev = NavbarData[index - 1];
-                        next = NavbarData[index + 1];
-                    } else {
+                    } else if (item.path === '/kit4'){
                         prev = NavbarData[index - 1];
                         next = NavbarData[index];
-                    }
+                    };
+
                     return (
                         <div key={index} className="display">
                             <div className="left">
@@ -54,7 +51,7 @@ const Navigation = ({toggle, isOpen}) => {
                 }
             })}
 
-            <FaAngleUp className="up"/>
+            <FaAngleUp className="up" onClick={toggle}/>
         </StyledNav>
     );
 };
