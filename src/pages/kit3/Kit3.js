@@ -5,10 +5,9 @@ import Sn3 from '../../drums/kit3/808SN3.wav';
 import Clap3 from '../../drums/kit3/Clap3.wav';
 import HHClosed3 from '../../drums/kit3/HHClosed3.wav';
 import HHOpen3 from '../../drums/kit3/HHOpen3.wav';
-import { useLocation } from "react-router-dom";
+
 
 const Kit3 = () => {
-    const location = useLocation();
 
     let context;
     let keyToSoundMap = {
@@ -97,7 +96,7 @@ const Kit3 = () => {
     }
     
     document.addEventListener('keydown', async key => {
-        await init(location);
+        await init();
         const letter = key.key.toLocaleLowerCase();
         processInteraction(letter)
         
