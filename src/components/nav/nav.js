@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
-const Navigation = ({toggle, isOpen}) => {
+const Navigation = ({toggle, isOpen, tiggle, clicked }) => {
 
     const location = useLocation();
 
@@ -31,7 +31,7 @@ const Navigation = ({toggle, isOpen}) => {
                     return (
                         <div key={index} className="display">
                             <div className="left">
-                                <Link to={prev.path}>
+                                <Link to={prev.path} onClick={tiggle}>
                                     <FaAngleLeft/>
                                 </Link>
                             </div>
@@ -40,7 +40,7 @@ const Navigation = ({toggle, isOpen}) => {
                                 <h3>{item.name}</h3>
                             </div>
                             <div className="right">
-                                <Link to={next.path}>
+                                <Link to={next.path} onClick={tiggle}>
                                     <FaAngleRight/>
                                 </Link>
                             </div>

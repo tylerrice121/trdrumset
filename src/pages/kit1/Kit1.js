@@ -5,8 +5,10 @@ import Sn from '../../drums/kit1/808SN.mp3';
 import Clap from '../../drums/kit1/Clap.mp3';
 import HHClosed from '../../drums/kit1/HHClosed.mp3';
 import HHOpen from '../../drums/kit1/HHOpen.mp3';
+import { useLocation } from "react-router-dom";
 
 const Kit1 = () => {
+    const location = useLocation();
 
     let context;
     let keyToSoundMap = {
@@ -44,7 +46,6 @@ const Kit1 = () => {
         if (context.state !== 'running'){
             context.resume();
         }
-
         await initSoundMap();
     }
 

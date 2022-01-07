@@ -1,21 +1,23 @@
 import { StyledKit4 } from "./Kit4Elements";
-import Snare from '../../drums/kit4/Snare.wav';
-import Kick from '../../drums/kit4/Kick.mp3';
-import Sn from '../../drums/kit4/808SN.mp3';
-import Clap from '../../drums/kit4/Clap.mp3';
-import HHClosed from '../../drums/kit4/HHClosed.mp3';
-import HHOpen from '../../drums/kit4/HHOpen.mp3';
+import Snare4 from '../../drums/kit4/Snare4.wav';
+import Kick4 from '../../drums/kit4/Kick4.wav';
+import Sn4 from '../../drums/kit4/808SN4.wav';
+import Clap4 from '../../drums/kit4/Clap4.wav';
+import HHClosed4 from '../../drums/kit4/HHClosed4.wav';
+import HHOpen4 from '../../drums/kit4/HHOpen4.wav';
+import { useLocation } from "react-router-dom";
 
-const Kit1 = () => {
+const Kit4 = () => {
+    const location = useLocation();
 
     let context;
     let keyToSoundMap = {
-        w: `${Snare}`,
-        e: `${HHOpen}`,
-        r: `${HHClosed}`,
-        a: `${Kick}`,
-        s: `${Sn}`,
-        d: `${Clap}`,
+        13: `${Snare4}`,
+        14: `${HHOpen4}`,
+        15: `${HHClosed4}`,
+        16: `${Kick4}`,
+        17: `${Sn4}`,
+        18: `${Clap4}`,
     }
 
     function loadSound(url) {
@@ -33,12 +35,12 @@ const Kit1 = () => {
     async function initSoundMap() {
         Object.entries(keyToSoundMap).forEach(async entry => {
             await loadSound(entry[1]).then(audioBuffer => keyToSoundMap[entry[0]] = audioBuffer)
+            
         })
     }
 
     async function init() {
         if (context) return;
-        
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         context = new AudioContext();
         if (context.state !== 'running'){
@@ -47,10 +49,9 @@ const Kit1 = () => {
 
         await initSoundMap();
     }
-
+    
     const playSound = (buffer, time) => {
         if (typeof buffer !== 'object') return;
-
         const source = context.createBufferSource();
         source.buffer = buffer;
         source.connect(context.destination);
@@ -58,36 +59,52 @@ const Kit1 = () => {
     };
 
     const processInteraction = (letter) => {
-
-        // ev.preventDefault()
+        if (letter === 'w'){
+            letter = 13
+        }
+        if (letter === 'e'){
+            letter = 14
+        }
+        if (letter === 'r'){
+            letter = 15
+        }
+        if (letter === 'a'){
+            letter = 16
+        }
+        if (letter === 's'){
+            letter = 17
+        }
+        if (letter === 'd'){
+            letter = 18
+        }
         const sound = document.querySelector(`audio[data-key="${letter}"]`);
         if (!sound) return;
-
+        
         context
-            ? playSound(keyToSoundMap[letter])
-            : sound.cloneNode().play();
-
+        ? playSound(keyToSoundMap[letter])
+        : sound.cloneNode().play();
+        
         // trigger css
         
         const pad = document.getElementById(letter);
         pad.classList.add('play');
-
+        
         const light = document.querySelector(`div[data-key="${letter}"]`)
         light.classList.add('playing');
-
+        
         setTimeout(() => pad.classList.remove('play'), 100)
         setTimeout(() => light.classList.remove('playing'), 100)
     }
-
+    
     document.addEventListener('keydown', async key => {
-        await init();
+        await init(location);
         const letter = key.key.toLocaleLowerCase();
         processInteraction(letter)
-
+        
     })
-
+    
     let handled = false;
-
+    
     document.addEventListener('touchstart', async ev => {
         await init();
         const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
@@ -98,7 +115,7 @@ const Kit1 = () => {
             handled = false;
         }
     })
-
+    
     document.addEventListener('click', async ev => {
         await init();
         const letter = ((ev.target.closest('div') || {}).id || '').toLocaleLowerCase();
@@ -108,7 +125,8 @@ const Kit1 = () => {
             handled = false;
         }
     })
-
+    
+    
     return (
         <StyledKit4>
             <div className="flip">
@@ -117,62 +135,62 @@ const Kit1 = () => {
             </div>
             <div className="allpads">
                 <div className="pad1" >
-                    <div id='w' className="innerpad" data-pad='1'>
+                    <div id='13' className="innerpad" data-pad='1'>
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='w' data-pad='1'></div>
+                        <div className="lightbulb" data-key='13' data-pad='1'></div>
                     </div>
                 </div>
                 <div className="pad2">
-                    <div id='e' data-pad='2' className="innerpad">
+                    <div id='14' data-pad='2' className="innerpad">
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='e' data-pad='2' ></div>
+                        <div className="lightbulb" data-key='14' data-pad='2' ></div>
                     </div>
                 </div>
                 <div className="pad3">
-                    <div id='r' className="innerpad" data-pad='3'>
+                    <div id='15' className="innerpad" data-pad='3'>
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='r' data-pad='3'></div>
+                        <div className="lightbulb" data-key='15' data-pad='3'></div>
                     </div>
                 </div>
                 <div className="pad4">
-                    <div id='a' className="innerpad" data-pad='4' >
+                    <div id='16' className="innerpad" data-pad='4' >
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='a' data-pad='4' ></div>
+                        <div className="lightbulb" data-key='16' data-pad='4' ></div>
                     </div>
                 </div>
                 <div className="pad5">
-                    <div id='s' className="innerpad" data-pad='5'>
+                    <div id='17' className="innerpad" data-pad='5'>
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='s' data-pad='5' ></div>
+                        <div className="lightbulb" data-key='17' data-pad='5' ></div>
                     </div>
                 </div>
                 <div className="pad6">
-                    <div id='d' className="innerpad" data-pad='6'>
+                    <div id='18' className="innerpad" data-pad='6'>
                         
                     </div>
                     <div className='light'>
-                        <div className="lightbulb" data-key='d' data-pad='6'></div>
+                        <div className="lightbulb" data-key='18' data-pad='6'></div>
                     </div>
                 </div>
             </div>
-            <audio  preload="true" data-key='w' data-pad='1' src={Snare}></audio>
-            <audio  preload="true" data-key='e' data-pad='2' src={HHOpen}></audio>
-            <audio  preload="true" data-key='r' data-pad='3' src={HHClosed}></audio>
-            <audio  preload="true" data-key='a' data-pad='4' src={Kick}></audio>
-            <audio  preload="true" data-key='s' data-pad='5' src={Sn}></audio>
-            <audio  preload="true" data-key='d' data-pad='6' src={Clap}></audio>
+            <audio  preload="true" data-key='13' data-pad='1' src={Snare4}></audio>
+            <audio  preload="true" data-key='14' data-pad='2' src={HHOpen4}></audio>
+            <audio  preload="true" data-key='15' data-pad='3' src={HHClosed4}></audio>
+            <audio  preload="true" data-key='16' data-pad='4' src={Kick4}></audio>
+            <audio  preload="true" data-key='17' data-pad='5' src={Sn4}></audio>
+            <audio  preload="true" data-key='18' data-pad='6' src={Clap4}></audio>
 
         </StyledKit4>
     );
 };
 
-export default Kit1;
+export default Kit4;

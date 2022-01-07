@@ -13,19 +13,25 @@ function App() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const [clicked, setClicked] = useState(false);
+
   const toggle = () => {
       setIsOpen(!isOpen)
+  };
+  const tiggle = () => {
+      setClicked(!clicked)
+      // setTimeout(() => setClicked(false), 1000)
   };
 
   return (
     <div className="App">
       <Dropdown toggle={toggle}/>
-      <Navigation isOpen={isOpen} toggle={toggle}/>
+      <Navigation isOpen={isOpen} toggle={toggle} tiggle={tiggle} clicked={clicked}/>
       <Routes>
-        <Route exact path='/' element={<Kit1/>}/>
-        <Route path='/kit2' element={<Kit2/>}/>
-        <Route path='/kit3' element={<Kit3/>}/>
-        <Route path='/kit4' element={<Kit4/>}/>
+        <Route exact path='/' element={<Kit1/>} />
+        <Route path='/kit2' element={<Kit2/>} />
+        <Route path='/kit3' element={<Kit3/>} />
+        <Route path='/kit4' element={<Kit4/>} />
       </Routes>
       
     </div>
