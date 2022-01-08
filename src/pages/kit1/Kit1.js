@@ -9,7 +9,6 @@ import HHOpen from '../../drums/kit1/HHOpen.mp3';
 
 const Kit1 = () => {
 
-
     let context;
     let keyToSoundMap = {
         w: `${Snare}`,

@@ -144,7 +144,6 @@ export const StyledKit4 = styled.div `
               transition: all 0.07s;
             } 
             .play{
-              transform: scale(1.01);
               background: rgb(52,50,51);
               background: radial-gradient(circle, #242224 0%, rgba(57,56,57,1) 100%);
             }
@@ -228,7 +227,6 @@ export const StyledKit4 = styled.div `
               transition: all 0.07s;
             } 
             .play{
-              transform: scale(1.01);
               background: rgb(52,50,51);
               background: radial-gradient(circle, #242224 0%, rgba(57,56,57,1) 100%);
             }
