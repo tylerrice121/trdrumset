@@ -30,20 +30,20 @@ const Navigation = ({toggle, isOpen, tiggle, clicked }) => {
 
                     return (
                         <div key={index} className="display">
-                            <div className="left">
-                                <Link to={prev.path} onClick={tiggle}>
+                            <Link to={prev.path} onClick={tiggle}>
+                                <div className="left">
                                     <FaAngleLeft/>
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                             <div className="led">
                                 <h2>{item.title}:</h2>
                                 <h3>{item.name}</h3>
                             </div>
-                            <div className="right">
-                                <Link to={next.path} onClick={tiggle}>
+                            <Link to={next.path} onClick={tiggle}>
+                                <div className="right">
                                     <FaAngleRight/>
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                         </div>
                     )
                 } else {

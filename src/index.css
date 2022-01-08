@@ -32,4 +32,9 @@ code {
         height: 100vh;
         min-width: 100vw;
     }
+    body {
+        width: 100vw;
+        background: rgb(172, 42, 42);
+        background: linear-gradient(270deg, rgba(172, 42, 42, 1) 0%, rgba(143, 25, 29, 1) 100%);
+    }
 }

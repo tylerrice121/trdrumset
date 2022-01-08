@@ -13,7 +13,7 @@ export const StyledKit3 = styled.div `
       display: none;
     }
     .allpads{
-      margin-top: 40px;
+        margin-top: 40px;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -90,34 +90,37 @@ export const StyledKit3 = styled.div `
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      min-width: 100vh;
-      height: 100vw;
+      min-width: 102vh;
+      height: 101vw;
       .flip{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        position: fixed;
+        position: absolute;
         align-self: center;
+        justify-self: center;
         transform: rotate(270deg);
-        z-index: 2;
         background-color:rgba(0, 0, 0, 0.5);
-        width: 103vw;
-        height: 103vh;
+        min-width: 102vw;
+        min-height: 103vh;
         text-align: center;
         color: white;
+        z-index: 999;
         h2{
           opacity: 1.0;
         }
       }
       .allpads{
+          margin-top: 40px;
           display: flex;
           align-self: center;
           flex-wrap: wrap;
-          min-width: 90vh;
-          height: 90vw;
+          min-width: 85vh;
+          height: 85vw;
           justify-content: space-evenly;
           align-items: center;
-          padding: 15px;
+          padding: 25px;
+          padding-top: 10px;
           background-color: transparent;
           div{
             width: 30%;
@@ -183,26 +186,25 @@ export const StyledKit3 = styled.div `
       
     }
     @media only screen and (max-device-width: 768px) and (orientation: landscape){
-      background-color: transparent;
-      /* background: rgb(172,42,42);
-      background: linear-gradient(270deg, rgba(172,42,42,1) 0%, rgba(143,25,29,1) 100%); */
-      padding: 0px;
+      padding: 2px;
       display: flex;
       flex-wrap: wrap;
       justify-self: center;
       align-self: center;
       justify-content: center;
-      min-width: 100vw;
-      height: 100vh;
+      min-width: 102vw;
+      height: 101vh;
       .allpads{
+          margin-top: 40px;
           display: flex;
           align-self: center;
           flex-wrap: wrap;
-          min-width: 90vw;
-          height: 90vh;
+          min-width: 85vw;
+          height: 85vh;
           justify-content: space-evenly;
           align-items: center;
-          padding: 15px;
+          padding: 25px;
+          padding-top: 10px;
           background-color: transparent;
           div{
             width: 30%;

@@ -4,7 +4,9 @@ import { StyledDropdown } from "./dropdownelements";
 const Dropdown = ({toggle}) => {
     return (
         <StyledDropdown>
-            <FaAngleDown className="dropdown" onClick={toggle}/>
+            <div className="wrapper">
+                <FaAngleDown className="dropdown" onClick={toggle}/>
+            </div>
         </StyledDropdown>
     );
 };
