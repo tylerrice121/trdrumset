@@ -13,7 +13,7 @@ const Kit4 = () => {
     for (let i = 0; i < a.length; i++){
         a[i].volume = 0.2;
     }
-    
+    console.log(a)
     let context;
     let keyToSoundMap = {
         13: `${Snare4}`,
@@ -186,12 +186,12 @@ const Kit4 = () => {
                     </div>
                 </div>
             </div>
-            <audio  preload="true" data-key='13' data-pad='1' src={Snare4}></audio>
-            <audio  preload="true" data-key='14' data-pad='2' src={HHOpen4}></audio>
-            <audio  preload="true" data-key='15' data-pad='3' src={HHClosed4}></audio>
-            <audio  preload="true" data-key='16' data-pad='4' src={Kick4}></audio>
-            <audio  preload="true" data-key='17' data-pad='5' src={Sn4}></audio>
-            <audio  preload="true" data-key='18' data-pad='6' src={Clap4}></audio>
+            <audio className='audio' preload="true" data-key='13' data-pad='1' src={Snare4}></audio>
+            <audio className='audio' preload="true" data-key='14' data-pad='2' src={HHOpen4}></audio>
+            <audio className='audio' preload="true" data-key='15' data-pad='3' src={HHClosed4}></audio>
+            <audio className='audio' preload="true" data-key='16' data-pad='4' src={Kick4}></audio>
+            <audio className='audio' preload="true" data-key='17' data-pad='5' src={Sn4}></audio>
+            <audio className='audio' preload="true" data-key='18' data-pad='6' src={Clap4}></audio>
 
         </StyledKit4>
     );
