@@ -9,6 +9,11 @@ import HHOpen2 from '../../drums/kit2/HHOpen2.wav';
 
 const Kit2 = () => {
 
+    let a = document.getElementsByClassName('audio')
+    for (let i = 0; i < a.length; i++){
+        a[i].volume = 0.2;
+    }
+    
     let context;
     let keyToSoundMap = {
         1: `${Snare2}`,

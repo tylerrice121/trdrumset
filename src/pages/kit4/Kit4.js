@@ -9,6 +9,11 @@ import HHOpen4 from '../../drums/kit4/HHOpen4.wav';
 
 const Kit4 = () => {
 
+    let a = document.getElementsByClassName('audio')
+    for (let i = 0; i < a.length; i++){
+        a[i].volume = 0.2;
+    }
+    
     let context;
     let keyToSoundMap = {
         13: `${Snare4}`,

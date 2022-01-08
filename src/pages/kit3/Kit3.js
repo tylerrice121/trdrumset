@@ -9,6 +9,11 @@ import HHOpen3 from '../../drums/kit3/HHOpen3.wav';
 
 const Kit3 = () => {
 
+    let a = document.getElementsByClassName('audio')
+    for (let i = 0; i < a.length; i++){
+        a[i].volume = 0.2;
+    }
+
     let context;
     let keyToSoundMap = {
         7: `${Snare3}`,
@@ -181,12 +186,12 @@ const Kit3 = () => {
                     </div>
                 </div>
             </div>
-            <audio  preload="true" data-key='7' data-pad='1' src={Snare3}></audio>
-            <audio  preload="true" data-key='8' data-pad='2' src={HHOpen3}></audio>
-            <audio  preload="true" data-key='9' data-pad='3' src={HHClosed3}></audio>
-            <audio  preload="true" data-key='10' data-pad='4' src={Kick3}></audio>
-            <audio  preload="true" data-key='11' data-pad='5' src={Sn3}></audio>
-            <audio  preload="true" data-key='12' data-pad='6' src={Clap3}></audio>
+            <audio  className='audio' preload="true" data-key='7' data-pad='1' src={Snare3} volume='0.5'></audio>
+            <audio  className='audio' preload="true" data-key='8' data-pad='2' src={HHOpen3}></audio>
+            <audio  className='audio' preload="true" data-key='9' data-pad='3' src={HHClosed3}></audio>
+            <audio  className='audio' preload="true" data-key='10' data-pad='4' src={Kick3}></audio>
+            <audio  className='audio' preload="true" data-key='11' data-pad='5' src={Sn3}></audio>
+            <audio  className='audio' preload="true" data-key='12' data-pad='6' src={Clap3}></audio>
 
         </StyledKit3>
     );
