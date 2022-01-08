@@ -17,8 +17,8 @@ The design of this application was inspired by the Roland SPD-SX sampling pad.
 # Screenshots
 ![screenshot 1](public/images/1.png)
 ![screenshot 2](public/images/2.png)
-![screenshot 3](public/images/3.png)
-![screenshot 4](public/images/4.png)
+![screenshot 3](public/images/5.png)
+![screenshot 4](public/images/6.png)
 
 # Getting Started
 
