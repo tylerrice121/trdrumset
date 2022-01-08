@@ -1,10 +1,10 @@
 import { StyledKit1 } from "./Kit1Elements";
 import Snare from '../../drums/kit1/Snare.wav';
-import Kick from '../../drums/kit1/Kick.mp3';
-import Sn from '../../drums/kit1/808SN.mp3';
-import Clap from '../../drums/kit1/Clap.mp3';
-import HHClosed from '../../drums/kit1/HHClosed.mp3';
-import HHOpen from '../../drums/kit1/HHOpen.mp3';
+import Kick from '../../drums/kit1/Kick.wav';
+import Sn from '../../drums/kit1/808SN.wav';
+import Clap from '../../drums/kit1/Clap.wav';
+import HHClosed from '../../drums/kit1/HHClosed.wav';
+import HHOpen from '../../drums/kit1/HHOpen.wav';
 
 
 const Kit1 = () => {
