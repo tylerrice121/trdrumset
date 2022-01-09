@@ -87,7 +87,7 @@ export const StyledNav = styled.div`
         position: absolute;
         margin: 10px;
     }
-    @media only screen and (max-device-width: 768px) and (orientation: portrait), (max-width: 768px) {
+    @media only screen and (max-device-width: 768px) and (orientation: portrait) {
         width: 500px;
         display: none;
     }
