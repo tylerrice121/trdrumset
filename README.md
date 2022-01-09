@@ -1,5 +1,5 @@
-# TRBeatPad
-The TRBeatPad is a fully functional and responsive audio triggering device.  The user can touch each pad and trigger a sound with preloaded audio files that were created in Pro Tools and Ableton. This application works on touch screens as well as desktops. When on the desktop - the user can trigger each sound using these keys: 'W E R A S D'
+# TR Beat Pad
+The TR Beat Pad is a fully functional and responsive audio triggering device.  The user can touch each pad and trigger a sound with preloaded audio files that were created in Pro Tools and Ableton. This application works on touch screens as well as desktops. When on the desktop - the user can trigger each sound using these keys: 'W E R A S D'
 
 The user can switch between drum kits using the dropdown menu at the top of the screen. When on a smaller tablet or smartphone, the user will be prompted to turn the screen to landscape mode for a better user experience.
 
@@ -22,7 +22,7 @@ The design of this application was inspired by the Roland SPD-SX sampling pad.
 
 # Getting Started
 
-[Click here](https://trbeatpad.netlify.app) to see the deployed project
+[Click here](https://trbeatpad.netlify.app){:target="_blank"} to see the deployed project 
 
 # Future Enhancements
 - Allow users to play the pad in full screen mode
