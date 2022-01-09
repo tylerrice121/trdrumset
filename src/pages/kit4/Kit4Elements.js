@@ -82,7 +82,7 @@ export const StyledKit4 = styled.div `
         }
 
     }
-    @media only screen and (max-device-width: 768px) and (orientation: portrait), (max-width: 768px) {
+    @media only screen and (max-device-width: 768px) and (orientation: portrait){
       background-color: transparent;
       background: rgb(172,42,42);
       background: linear-gradient(270deg, rgba(172,42,42,1) 0%, rgba(143,25,29,1) 100%);
