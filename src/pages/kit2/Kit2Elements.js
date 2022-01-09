@@ -93,7 +93,7 @@ export const StyledKit2 = styled.div `
       min-width: 102vh;
       height: 101vw;
       .flip{
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         position: absolute;
