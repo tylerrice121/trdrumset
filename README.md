@@ -24,6 +24,7 @@ The design of this application was inspired by the Roland SPD-SX sampling pad.
 
 [Click here](https://trbeatpad.netlify.app) to see the deployed project 
 
+recommend opening in seperate browser 
 
 # Future Enhancements
 - Allow users to play the pad in full screen mode
