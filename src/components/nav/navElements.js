@@ -87,37 +87,87 @@ export const StyledNav = styled.div`
         position: absolute;
         margin: 10px;
     }
-    @media only screen and (max-device-width: 768px) and (orientation: portrait) {
-        width: 500px;
-        display: none;
+    @media only screen and (max-width: 768px) {
+        font-family: 'Orbitron', sans-serif;
+        position: absolute;
+        z-index: 1;
+        width: 400px;
+        height: 300px;
+        background: rgb(33,33,33);
+        background: radial-gradient(circle, rgba(33,33,33,1) 0%, rgba(42,42,42,1) 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        transition: 0.3s ease-in-out;
+        box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.85);
+        -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.85);
+        -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.85);
+        transform: perspective(100px) rotateX(-1deg);
+        left: 20px;
+        right: 0;
+        margin: auto;
+        color: white;
+        opacity: ${({isOpen}) => (isOpen ? '100%' : '0')};
+        top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+        .display{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 350px;
+            .led{
+                width: 175px;
+                height: 130px;
+                -moz-box-shadow:    inset 0 0 10px #000000;
+                -webkit-box-shadow: inset 0 0 10px #000000;
+                box-shadow:         inset 0 0 10px #000000;
+                background: rgb(25,172,237);
+                background: radial-gradient(circle, rgba(25,172,237,1) 0%, rgba(36,113,147,1) 100%);
+                font-family: 'Orbitron', sans-serif;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                h2{
+                    margin: 0;
+                }
+                h3{
+                    margin: 0;
+                }
+            }
+        }
     }
     @media only screen and (max-device-width: 768px) and (orientation: landscape) {
         width: 500px;
         .display{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 450px;
-        .led{
-            width: 250px;
-            height: 130px;
-            -moz-box-shadow:    inset 0 0 10px #000000;
-            -webkit-box-shadow: inset 0 0 10px #000000;
-            box-shadow:         inset 0 0 10px #000000;
-            background: rgb(25,172,237);
-            background: radial-gradient(circle, rgba(25,172,237,1) 0%, rgba(36,113,147,1) 100%);
-            font-family: 'Orbitron', sans-serif;
-            text-align: center;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            h2{
-                margin: 0;
-            }
-            h3{
-                margin: 0;
+            justify-content: space-between;
+            align-items: center;
+            width: 450px;
+            .led{
+                width: 250px;
+                height: 130px;
+                -moz-box-shadow:    inset 0 0 10px #000000;
+                -webkit-box-shadow: inset 0 0 10px #000000;
+                box-shadow:         inset 0 0 10px #000000;
+                background: rgb(25,172,237);
+                background: radial-gradient(circle, rgba(25,172,237,1) 0%, rgba(36,113,147,1) 100%);
+                font-family: 'Orbitron', sans-serif;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                h2{
+                    margin: 0;
+                }
+                h3{
+                    margin: 0;
+                }
             }
         }
     }
+    @media only screen and (max-device-width: 768px) and (orientation: portrait) {
+        width: 500px;
+        display: none;
     }
-`;
+    `;

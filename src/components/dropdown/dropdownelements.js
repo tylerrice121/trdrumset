@@ -24,9 +24,14 @@ export const StyledDropdown = styled.div `
             width: 200px;
             height: 30px;
         }
-        @media only screen and (max-device-width: 768px) and (orientation: portrait), (max-width: 768px) {
+        @media only screen and (max-device-width: 768px) and (orientation: portrait){
             margin-top: 0px;
             width: 500px;
+            z-index: 1;
+        }
+        @media only screen and (max-width: 768px){
+            margin-top: 0px;
+            width: 400px;
             z-index: 1;
         }
         @media only screen and (max-device-width: 768px) and (orientation: landscape) {
